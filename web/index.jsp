@@ -49,7 +49,6 @@
             } catch (SQLException e) {
                 out.println("Erro ao selecionar dados " + e);
             }
-        %>
         
         %>
     </body>
