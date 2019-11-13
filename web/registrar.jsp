@@ -26,7 +26,7 @@
           //  ConexaoBancoDeDados cx=new ConexaoBancoDeDados();            
             
              String nome = request.getParameter("rlogin");
-             //String email = request.getParameter("emailsignup");
+             String email = request.getParameter("remail");
              String senha = request.getParameter("rsenha");
              
             
@@ -34,7 +34,7 @@
              
              
             c.setjNome(nome);
-            //c.setjEmail(email);
+            c.setjEmail(email);
             c.setjSenha(senha);
              
              
@@ -54,7 +54,7 @@
 
 //preenche os valores            
                 stmt.setString(1, c.getjNome());
-                //stmt.setString(2, c.getjEmail());
+                stmt.setString(2, c.getjEmail());
                 stmt.setString(3, c.getjSenha());
                 
 // executa
