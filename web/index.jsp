@@ -43,7 +43,7 @@
                     out.println("Nome: " + nnome + "<p></p>");                    
                     out.println("Senha: " + ssenha + "<p></p>");
                     
-                    response.sendRedirect("Admin.html");
+                    response.sendRedirect("home.html");
                     
                    // out.println("-----------------------------------------------<br>");
                 }                
