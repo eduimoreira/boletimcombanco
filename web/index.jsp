@@ -19,7 +19,7 @@
         <%
             String lg = request.getParameter("login");
             String sn = request.getParameter("senha");
-            
+            String ad = "admin";
            try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/aula", "root", "");
@@ -34,15 +34,16 @@
                 
                 while (rs.next()) {
                     //int bdid = rs.getInt("idCli");
-                    String nnome = rs.getString("nome");                    
-                    String ssenha = rs.getString("senha");                    
-                    
-                    
+                    //String nnome = rs.getString("nome");                    
+                    //String ssenha = rs.getString("senha");                    
+                   
+                    String nnome = ad;                    
+                    String ssenha = ad;
                     //out.println("Id: " + bdid+ "<p></p>");
                     out.println("Nome: " + nnome + "<p></p>");                    
                     out.println("Senha: " + ssenha + "<p></p>");
                     
-                    //response.sendRedirect("boletim.html");
+                    response.sendRedirect("Admin.html");
                     
                    // out.println("-----------------------------------------------<br>");
                 }                
