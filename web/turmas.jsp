@@ -1,27 +1,82 @@
+<%-- 
+    Document   : turmas
+    Created on : 20/11/2019, 21:28:57
+    Author     : Aluno
+--%>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>        
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/home.css">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
     <body>
-      
-        div><center><br><h1 class="title header">SEJA BEM-VINDO</h1></center>
-        
-        
-        <!-- MENIVIIIIIIIIIIIIIIIIIIIIIIIIIIS-->
         
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 
+      
+         <div><center><br><h1 class="title header">ALUNOS</h1></center>
+            <div class="login-page">
+            <div class="form">
+              <!--<form action="registrar.jsp" class="register-form">
+                <input type="text" name="colegio" placeholder="Nome do Colégio"/>
+                <input type="text" name="turmas" placeholder="Turma"/>
+                <input type="text" name="professor" placeholder="Professor da Turma"/>
+                <input type="text" name="alunos" placeholder="Aluno"/>
+                <button>Criar</button>
+                <p class="message">Já é Cadastrado? <a href="#">Cadastro</a></p>
+                <script src="js/script.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+             
+                </form>-->
+                <form action="Calunos.jsp" class="login-form" >
+                 <%
+                            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/aula", "root", "");
+                
+                //String sqlConsulta = "select * from cliente where nome=";
+                 String sqlConsulta = "SELECT * FROM aluno"; 
+                
+                //String sqlConsulta = "SELECT idTeste, Nome FROM teste WHERE Nome = 'Marcos'";
+                
+                PreparedStatement stmt2 = conexao.prepareStatement(sqlConsulta);
+                ResultSet rs = stmt2.executeQuery();
+                
+                while (rs.next()) {
+                    %>   <option value = "<% out.println(rs.getString("nome"));%>"> <% out.println(rs.getString("nome")); %> </option> <%
+                    
+                   
+                }               
+            }catch (SQLException e) {
+                out.println("Erro ao selecionar dados " + e);
+            }
+        %>
+                
+              
+           
+               
+                <script src="js/script.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+              </form>
+            </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
         <div class="page-container">
          
 
@@ -84,8 +139,5 @@ and open the template in the editor.
           </div>
         </div>
    
-        
-    
-    
     </body>
 </html>
